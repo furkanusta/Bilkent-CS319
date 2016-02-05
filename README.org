@@ -2,7 +2,7 @@
 Object-Oriented Software Engineering Spring 2016
 
 Group Members:
-+ 
-+
-+
-+ 
++ Ali Onur Geven
++ Furkan Usta
++ Furkan Taşkale  
++ Halil Bülent Orhon
