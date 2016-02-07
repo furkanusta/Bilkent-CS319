@@ -6,3 +6,7 @@ Group Members:
 + Furkan Usta
 + Furkan Salih Taşkale  
 + Halil Bülent Orhon
+
+Our project is a turn based strategy game. It is played on the world map where countries are distributed to the players. At each turn players can attack one of the neighbour countries and capture it if they win the war. The aim of the game is to conquer the world.
+
+Our project will be written in Java
