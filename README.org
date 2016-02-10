@@ -3,7 +3,7 @@ Object-Oriented Software Engineering Spring 2016
 
 Group 8 Members(Alphabetical Order):
 + Ali Onur Geven - 21300896
-+ Furkan Usta
++ Furkan Usta - 21301629
 + Furkan Salih Taşkale  
 + Halil Bülent Orhon - 21202096
 
