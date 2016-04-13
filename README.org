@@ -14,7 +14,7 @@ Group 8 Members(Alphabetical Order):
 
 [[file:cs319_group8_revised_analysis_report.pdf][Project Analysis Report (Final)]]
 
-[[file:cs319_group8_design report.pdf][Project Design Report]]
+[[file:"cs319_group8_design report.pdf"][Project Design Report]]
 
 [[file:design_report_final.pdf][Project Design Report (Revised)]]
 
