@@ -14,7 +14,7 @@ Group 8 Members(Alphabetical Order):
 
 [[file:cs319_group8_revised_analysis_report.pdf][Project Analysis Report (Final)]]
 
-[https://github.com/furkanusta/Bilkent-CS319/blob/master/cs319_group8_design%20report.pdf][Project Design Report]]
+[[file:cs319_group8_design%20report.pdf][Project Design Report (Revised)]]
 
 [[file:design_report_final.pdf][Project Design Report (Revised)]]
 
