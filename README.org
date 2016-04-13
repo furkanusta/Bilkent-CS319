@@ -16,7 +16,7 @@ Group 8 Members(Alphabetical Order):
 
 [[file:cs319_group8_design%20report.pdf][Project Design Report (Revised)]]
 
-[[file:design_report_final.pdf][Project Design Report (Revised)]]
+[[file:design_report_final.pdf][Project Design Report (Final)]]
 
 ** Description:
 Our project is a game named "Conquest". It is a turn based multi-player strategy game (each player will play the game on same computer). Conquest will be played on the World Map and the main goal of the game is to be the Conqueror of the World. As the game starts areas on the map will be distributed randomly to each player. Each player will have different kinds of troops and every troop will have its own attributes. To be able to conquer the world players will have chances to create, upgrade troops and also attack to their neighbor areas. Players will gain gold for winning wars and they will spend this gold on upgrades and creation of troops. In each turn there will be limited number of upgrades and time spent. Whoever conquers the world will be the winner of the game.
