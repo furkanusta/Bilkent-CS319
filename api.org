@@ -1,0 +1,58 @@
+* Conquest API Documentation
+** GameManager
+This is the main class that controls the flow of the game.
+It contains all the other manager objects and proivdes a connection
+between these classes. It also contains the timer and controls the turn
+
+Other than the getter/setter methods GameManager contains some functions
+that are meant to be used by other classes.
+
+Onless otherwise stated all functions return void
+*** initialize(ArrayList<User> alive, ArrayList<User> dead, MapManager, int turn, int turnCount)
+This is the method that initilizes the game, all the parameters other than
+first, is meant for load game and passed null when a new game is created
+*** stop/continueTimer(void)
+stops/continues the timer, use this before opening Joptionpane
+
+** BonusManager
+*** checkBonusCondition(MapManager, User, int turnCount)
+Checks if a user is eligible for any bonus, and if it is adds the bonus troops
+** Continent / Region
+Data classes, reads a text file containing required information and stores
+Does not contain any control segment, just acts as a container
+** Troop/Infantry/Jet/Tank
+Like above these are also data classes and does not contain any decision segment
+** MapManager
+Stores the current status of the map
+*** initialize (int userCount)
+initialize a map and distributes the regions randomly among given number of users
+** WarManager
+*** TroopManager simulateWar(TroopManager attack, defense, User attacker, defender)
+It simulates a war between two regions, and returns TroopManager of the winning side
+As a side effect it kills both parties' troops.
+If at the end, both parties go down to 0 troops, then it randomly decides one side
+as winner and gives 1 infantry
+** ScreenManager extends JFrame
+Main screen which all the things are drawn upon. 
+*** draw(JPanel, x, y)
+draws the given panel in the given coordinates
+*** clearContents()
+clears everything on the frame
+** TroopManager
+Acts as a container for all the troops residing in a region
+Provides an interface to add or delete troops
+Since, it holds a Troop array it is easy to use the manager with other classes
+
+** _Menu classes
+All the classes with Menu suffix accept the Menu.java itself, extends Menu which
+also extends JPanel.
+
+They all are responsible for drawing the requested Menu and only provide
+constructor.
+
+** MapView
+This is the class that provides all the interaction in in-game screen
+It handles the clicks, updates the map and etc.
+
+** repaintMap(void)
+use it when you need to repaint the map ( for example after some region changes owner)
