@@ -1,6 +1,6 @@
 package com.oo.conquest;
 
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -58,6 +58,7 @@ public class UserSelectionMenu extends Menu{
 		colorBox2.addItem("Orange");
 		colorBox2.addItem("Purple");
 		colorBox2.setBounds(90+50+200, 10+40, 70, 25);
+        colorBox2.setSelectedIndex(1);
 		add(colorBox2);
 
 		JCheckBox checkBox2 = new JCheckBox();
@@ -88,6 +89,7 @@ public class UserSelectionMenu extends Menu{
 		colorBox3.addItem("Orange");
 		colorBox3.addItem("Purple");
 		colorBox3.setBounds(90+50+200, 10+40+40, 70, 25);
+        colorBox3.setSelectedIndex(2);
 		add(colorBox3);
 
 		JCheckBox checkBox3 = new JCheckBox();
@@ -118,6 +120,7 @@ public class UserSelectionMenu extends Menu{
 		colorBox4.addItem("Blue");
 		colorBox4.addItem("Orange");
 		colorBox4.addItem("Purple");
+        colorBox4.setSelectedIndex(3);
 		colorBox4.setBounds(90+50+200, 10+40+40+40, 70, 25);
 		add(colorBox4);
 
@@ -142,6 +145,7 @@ public class UserSelectionMenu extends Menu{
 		});
 
 		JButton startGameButton = new JButton("Start Game");
+		startGameButton.setMargin(new Insets(0,0,0,0));
 		startGameButton.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<User> userList = new ArrayList<User>();
@@ -199,7 +203,7 @@ public class UserSelectionMenu extends Menu{
 				game_M.initialize(userList, null, null, 0, 0);
 			} 
 		} );
-		startGameButton.setBounds(700,0, 70, 20);
+		startGameButton.setBounds(700,0, 90, 20);
 		add(startGameButton);
 	}
 

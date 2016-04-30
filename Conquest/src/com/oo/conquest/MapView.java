@@ -24,7 +24,7 @@ public class MapView extends JPanel{
 
 	public MapView(Region[] regionArray, UserManager user_M, GameManager gameManager){
 		super();
-		timeLabel = new JLabel("15");
+		timeLabel = new JLabel("30");
 		status = -1;
 		this.regionArray = regionArray;
 		sourceRegion = null;
@@ -206,7 +206,8 @@ public class MapView extends JPanel{
 			});
 
 			JButton save_button = new JButton("SAVE");
-            save_button.setBounds(900, 400, 70, 20);
+			save_button.setMargin(new Insets(0,0,0,0));
+            save_button.setBounds(860, 400, 70, 20);
             save_button.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent e) {
@@ -257,7 +258,8 @@ public class MapView extends JPanel{
             add(save_button);
 
 			JButton change_color = new JButton("Change Color");
-			change_color.setBounds(900, 350, 70, 20);
+            change_color.setMargin(new Insets(0,0,0,0));
+			change_color.setBounds(860, 350, 110, 20);
 			change_color.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
@@ -278,7 +280,7 @@ public class MapView extends JPanel{
 							"Please Select your color", JOptionPane.OK_CANCEL_OPTION);
 					System.out.println(result);
 					if (result == 0) {
-						if (game_M.changeColor(colorBox.getSelectedIndex()) == false) {
+						if (!game_M.changeColor(colorBox.getSelectedIndex())) {
 							JOptionPane.showMessageDialog(getTopLevelAncestor(), "You cannot select a color that has already been selected!", "Warning",
 									JOptionPane.WARNING_MESSAGE);
 						}
@@ -290,7 +292,7 @@ public class MapView extends JPanel{
 			add(change_color);
 			JCheckBox sound_check = new JCheckBox("Mute");
 			//sound_check.setForeground(Color.WHITE);
-			sound_check.setBounds(900, 420, 70, 20);
+			sound_check.setBounds(860, 420, 70, 20);
 			sound_check.addItemListener(new ItemListener() {
 				@Override
 				public void itemStateChanged(ItemEvent itemEvent) {

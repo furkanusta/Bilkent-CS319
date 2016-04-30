@@ -1,5 +1,6 @@
 package com.oo.conquest;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -29,9 +30,11 @@ public class MainMenu extends Menu{
 		
 		
 		startButton.setBounds(300,10,100,100);
+        startButton.setMargin(new Insets(0,0,0,0));
 		add(startButton);
 
 		JButton loadGameButton = new JButton("Load Game");
+        loadGameButton.setMargin(new Insets(0,0,0,0));
 		loadGameButton.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
                 JFileChooser openFile = new JFileChooser();
@@ -119,9 +122,11 @@ public class MainMenu extends Menu{
 			} 
 		} );
 		optionsButton.setBounds(300,230,100,100);
+        optionsButton.setMargin(new Insets(0,0,0,0));
 		add(optionsButton);
 
 		JButton exitGameButton = new JButton("Exit Game");
+        exitGameButton.setMargin(new Insets(0,0,0,0));
 		exitGameButton.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) { 
 				System.exit(0);

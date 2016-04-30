@@ -52,7 +52,7 @@ public class GameManager {
 		});
 		screen_M.draw(startPanel, 0, 0);
 		turn = 0;
-		timeLeft = 10;
+		timeLeft = 30;
 		turnCount = 0;
 	}
 
@@ -95,7 +95,7 @@ public class GameManager {
 		if(turn == 0){
 			turnCount++;
 		}
-		timeLeft = 10;
+		timeLeft = 30;
 		map_V.repaintMap();
 		upgrade_M.repaintMenu(user_M, turn);
 	}
