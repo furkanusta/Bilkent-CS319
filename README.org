@@ -18,7 +18,7 @@ Group 8 Members(Alphabetical Order):
 
 [[file:design_report_final.pdf][Project Design Report (Final)]]
 
-[[file:Final_report.pdf][Project Final Report]]
+[[file:Final_Report.pdf][Project Final Report]]
 
 
 
