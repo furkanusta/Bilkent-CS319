@@ -81,6 +81,8 @@ public class User {
 
 	public void setExperiencePoints(int experiencePoints) {
 		this.experiencePoints += experiencePoints;
+		if(this.experiencePoints < 0)
+			this.experiencePoints = 0;
 	}
 
 	public int getInfLevel() {

@@ -1,12 +1,10 @@
 package com.oo.conquest;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Image;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.*;
-import java.util.Scanner;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.swing.*;
 
@@ -34,8 +32,8 @@ public class MapView extends JPanel{
 		this.game_M = gameManager;
 		regionLabelList = new JLabel[12];
 		setLayout(null);
-		setBounds(0, 0, 1024, 768);
-		setSize(new Dimension(1024, 768));
+		setBounds(0, 0, 1024, 468);
+		setSize(new Dimension(1024, 468));
 		
 		timeLabel.setBounds(950, 50, 100, 100);
 		timeLabel.setForeground(Color.white);
@@ -63,8 +61,7 @@ public class MapView extends JPanel{
 
 			add(label);
 
-			label.addMouseListener(new MouseAdapter() 
-			{
+			label.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) 
 				{
@@ -209,7 +206,7 @@ public class MapView extends JPanel{
 			});
 
 			JButton save_button = new JButton("SAVE");
-            save_button.setBounds(950, 250, 150, 150);
+            save_button.setBounds(900, 400, 70, 20);
             save_button.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent e) {
@@ -258,6 +255,54 @@ public class MapView extends JPanel{
                 }
             });
             add(save_button);
+
+			JButton change_color = new JButton("Change Color");
+			change_color.setBounds(900, 350, 70, 20);
+			change_color.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mousePressed(MouseEvent e) {
+					JPanel panel = new JPanel();
+					panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+					JLabel color = new JLabel("Select Your Color");
+
+					JComboBox<String> colorBox = new JComboBox<String>();
+					colorBox.addItem("Grey");
+					colorBox.addItem("Blue");
+					colorBox.addItem("Orange");
+					colorBox.addItem("Purple");
+
+					panel.add(color);
+					panel.add(colorBox);
+					game_M.stopTimer();
+					int result = JOptionPane.showConfirmDialog(null, panel,
+							"Please Select your color", JOptionPane.OK_CANCEL_OPTION);
+					System.out.println(result);
+					if (result == 0) {
+						if (game_M.changeColor(colorBox.getSelectedIndex()) == false) {
+							JOptionPane.showMessageDialog(getTopLevelAncestor(), "You cannot select a color that has already been selected!", "Warning",
+									JOptionPane.WARNING_MESSAGE);
+						}
+					}
+					game_M.continueTimer();
+					repaintMap();
+				}
+			});
+			add(change_color);
+			JCheckBox sound_check = new JCheckBox("Mute");
+			//sound_check.setForeground(Color.WHITE);
+			sound_check.setBounds(900, 420, 70, 20);
+			sound_check.addItemListener(new ItemListener() {
+				@Override
+				public void itemStateChanged(ItemEvent itemEvent) {
+					if (itemEvent.getStateChange() == ItemEvent.SELECTED) {
+						game_M.getSoundManager().stop();
+					}
+					else {
+						game_M.getSoundManager().start();
+					}
+				}
+			});
+			add(sound_check);
 		}
 	}
 

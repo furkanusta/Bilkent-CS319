@@ -6,12 +6,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
+import java.util.HashSet;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 public class UserSelectionMenu extends Menu{
 
@@ -148,17 +145,56 @@ public class UserSelectionMenu extends Menu{
 		startGameButton.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<User> userList = new ArrayList<User>();
+				HashSet<Integer> colorSet = new HashSet<Integer>();
 				if(checkBox1.isSelected()){
+					if (userNameField1.getText().isEmpty()) {
+						JOptionPane.showMessageDialog(getTopLevelAncestor(), "You cannot leave the name empty!", "Warning",
+								JOptionPane.WARNING_MESSAGE);
+						return;
+					}
 					userList.add(new User(userList.size() , colorBox1.getSelectedIndex(), userNameField1.getText(), 0, 0, 0, 0));
+					colorSet.add(colorBox1.getSelectedIndex());
 				}
 				if(checkBox2.isSelected()){
+					if (userNameField2.getText().isEmpty()) {
+						JOptionPane.showMessageDialog(getTopLevelAncestor(), "You cannot leave the name empty!", "Warning",
+								JOptionPane.WARNING_MESSAGE);
+						return;
+					}
 					userList.add(new User(userList.size() , colorBox2.getSelectedIndex(), userNameField2.getText(), 0, 0, 0, 0));
+					colorSet.add(colorBox2.getSelectedIndex());
 				}
 				if(checkBox3.isSelected()){
+					if (userNameField3.getText().isEmpty()) {
+						JOptionPane.showMessageDialog(getTopLevelAncestor(), "You cannot leave the name empty!", "Warning",
+								JOptionPane.WARNING_MESSAGE);
+						return;
+					}
 					userList.add(new User(userList.size() , colorBox3.getSelectedIndex(), userNameField3.getText(), 0, 0, 0, 0));
+					colorSet.add(colorBox3.getSelectedIndex());
 				}
 				if(checkBox4.isSelected()){
+					if (userNameField4.getText().isEmpty()) {
+						JOptionPane.showMessageDialog(getTopLevelAncestor(), "You cannot leave the name empty!", "Warning",
+								JOptionPane.WARNING_MESSAGE);
+						return;
+					}
 					userList.add(new User(userList.size() , colorBox4.getSelectedIndex(), userNameField4.getText(), 0, 0, 0, 0));
+					colorSet.add(colorBox4.getSelectedIndex());
+				}
+				System.out.println(colorSet.size());
+				System.out.println(userList.size());
+				if (colorSet.size() != userList.size()) {
+					JOptionPane.showMessageDialog(getTopLevelAncestor(), "Two players cannot select the same color", "Warning",
+							JOptionPane.WARNING_MESSAGE);
+					userList.clear();
+					return;
+				}
+				if (userList.size() < 2) {
+					JOptionPane.showMessageDialog(getTopLevelAncestor(), "There needs to be at least two player", "Warning",
+							JOptionPane.WARNING_MESSAGE);
+					userList.clear();
+					return;
 				}
 				game_M.initialize(userList, null, null, 0, 0);
 			} 

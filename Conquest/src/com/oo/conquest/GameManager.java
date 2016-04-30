@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 public class GameManager {
 	private ScreenManager screen_M;
+	private SoundManager sound_M;
 	private MainMenu main_Menu;
 	private MapManager map_M; 
 	private MapView map_V;
@@ -25,10 +26,12 @@ public class GameManager {
 	private Timer timer;
 	private int timeLeft;
 	private int turnCount;
+	private UpgradeMenu upgrade_M;
 
 	public GameManager(){
 		GameManager parent = this;
 		screen_M = new ScreenManager();
+		sound_M = new SoundManager();
 		war_M = new WarManager();
 		ImageIcon image = resizeImage(new ImageIcon("images/startImage.jpg"), 1024, 768);
 		JLabel label = new JLabel("", image, JLabel.CENTER);
@@ -94,6 +97,7 @@ public class GameManager {
 		}
 		timeLeft = 10;
 		map_V.repaintMap();
+		upgrade_M.repaintMenu(user_M, turn);
 	}
 
 	public WarManager getWarManager() {
@@ -113,6 +117,8 @@ public class GameManager {
     }
 
     public MapManager getMapManager() { return map_M; }
+
+	public SoundManager getSoundManager() {return sound_M;}
 
 	public void initialize(ArrayList<User> userList, ArrayList<User> deadList, MapManager map, int turn, int turnCount){
 		User[] userArray = new User[userList.size()];
@@ -141,10 +147,12 @@ public class GameManager {
             this.turn = turn;
             this.turnCount = turnCount;
         }
-
+		sound_M.start();
 		map_V = new MapView(map_M.getRegionArray(), user_M, this);
 		screen_M.clearContents();
 		screen_M.draw(map_V, 0, 0);
+		upgrade_M = new UpgradeMenu(user_M, user_M.getUserList()[turn].getId());
+		screen_M.draw(upgrade_M, 0, 468);
 		timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			public void run() {
@@ -172,6 +180,10 @@ public class GameManager {
 				}
 			}
 		}, 1000, 1000);
+	}
+
+	public boolean changeColor (int newColor) {
+		return user_M.changeColor(turn, newColor);
 	}
 
 	public ImageIcon resizeImage(ImageIcon icon, int x, int y){

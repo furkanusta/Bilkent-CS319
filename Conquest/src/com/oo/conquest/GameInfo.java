@@ -7,6 +7,12 @@ public class GameInfo {
 
     private User[] users;
     GameInfo(int userNo) {
-        users = new User[userNo];
+        setUsers(new User[userNo]);
     }
+	public User[] getUsers() {
+		return users;
+	}
+	public void setUsers(User[] users) {
+		this.users = users;
+	}
 }

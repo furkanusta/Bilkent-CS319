@@ -22,4 +22,14 @@ public class UserManager {
 		temp.remove(userId);
 		userList = temp.toArray(new User[userList.length-1]);
 	}
+
+	public boolean changeColor(int userId, int color) {
+		for (int i = 0; i < userList.length; i++) {
+			if (userList[i].getColor() == color) {
+				return false;
+			}
+		}
+		userList[userId].setColor(color);
+		return true;
+	}
 }
